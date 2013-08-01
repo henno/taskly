@@ -7,7 +7,8 @@ class tasks {
 		global $request;
 		global $auth;
 		$id=$request->params[0];
-		$tasks=get_first("SELECT * FROM task WHERE task_id='$id' ");
+		$tasks=get_all("SELECT * FROM task WHERE task_id='$id' ");
+		$tasks=$tasks[0];
 		require 'views/master_view.php';
 	}
 }
