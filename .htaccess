@@ -1,6 +1,6 @@
 RewriteEngine On
 
-RewriteBase /halo/
+RewriteBase /taskly/
 
 RewriteRule ^(classes) - [F,L]
 
