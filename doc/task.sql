@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `task` (
   `task_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `task_summary` text NOT NULL,
   `task_reported_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `due_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `task_due` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status_id` tinyint(3) unsigned NOT NULL,
   `deleted` tinyint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`task_id`),
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `task` (
 -- Dumping data for table `task`
 --
 
-INSERT INTO `task` (`task_id`, `task_summary`, `task_reported_time`, `due_date`, `status_id`, `deleted`) VALUES
+INSERT INTO `task` (`task_id`, `task_summary`, `task_reported_time`, `task_due`, `status_id`, `deleted`) VALUES
 (4, 'Esimene töö', '2013-08-08 16:27:22', '2013-08-21 21:00:00', 1, 0),
 (5, 'teine töö', '2013-08-08 16:27:22', '2013-08-15 21:00:00', 2, 0);
 
