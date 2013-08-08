@@ -23,6 +23,7 @@ class tasks {
 			$data['due_date']=$_POST['due_date'];
 			$data['status_id']=$_POST['status_id'];
 			insert("task", $data);
+		$request->redirect('');
 	}
 		require 'views/master_view.php';
 		}
