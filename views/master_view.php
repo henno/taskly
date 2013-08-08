@@ -129,7 +129,7 @@
 	require 'views/'.$request->controller.'_'.$request->action.'_view.php';
 	?></div>
 <!--jquery-->
-<script src="<?=ASSETS_URL?>jquery/js/jquery-1.7.2.min.js"></script>
+<script src="<?=ASSETS_URL?>jquery/js/jquery-2.0.2.min.js"></script>
 <!--bootstrap-->
 <script src="<?=ASSETS_URL?>bootstrap/js/bootstrap-transition.js"></script>
 <script src="<?=ASSETS_URL?>bootstrap/js/bootstrap-alert.js"></script>
