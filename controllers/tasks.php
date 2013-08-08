@@ -20,9 +20,10 @@ class tasks {
 		$statuses=get_all("SELECT * FROM status");
 		if (isset($_POST['task_summary']) && isset($_POST['due_date']) && isset($_POST['status_id']) ) {
 			$data['task_summary']=$_POST['task_summary'];
-			$data['due_date']=$_POST['due_date'];
+			$data['task_due']=$_POST['due_date'];
 			$data['status_id']=$_POST['status_id'];
 			insert("task", $data);
+		$request->redirect('');
 	}
 		require 'views/master_view.php';
 		}
