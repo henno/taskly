@@ -1,4 +1,4 @@
-
+<button><a href="<?=BASE_URL ?>tasks/create" >Lisa uus!</a></button>
 <table class="table table-bordered">
 	<? foreach ($tasks as $task): ?>
 	<tr>

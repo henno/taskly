@@ -14,4 +14,16 @@ class tasks {
 		$tasks=get_first("SELECT * FROM task WHERE task_id='$id' ");
 		require 'views/master_view.php';
 	}
+	function create(){
+		global $request;
+		global $auth;
+		$statuses=get_all("SELECT * FROM status");
+		if (isset($_POST['task_summary']) && isset($_POST['due_date']) && isset($_POST['status_id']) ) {
+			$data['task_summary']=$_POST['task_summary'];
+			$data['due_date']=$_POST['due_date'];
+			$data['status_id']=$_POST['status_id'];
+			insert("task", $data);
+	}
+		require 'views/master_view.php';
+		}
 }
