@@ -22,8 +22,15 @@ class tasks {
 			$data['task_summary']=$_POST['task_summary'];
 			$data['task_due']=$_POST['due_date'];
 			$data['status_id']=$_POST['status_id'];
-			insert("task", $data);
-		$request->redirect('');
+
+            $task_id = insert("task", $data);
+            $new_value = implode(" | ",$data);
+             die($new_value);
+            $event_type_id = get_one("SELECT event_type_id FROM event_type WHERE event_type_name = 'create' ");
+
+//            function log($task_id, $event_type_id, $new_value = null, null) {
+
+                $request->redirect('');
 	}
 		require 'views/master_view.php';
 		}
