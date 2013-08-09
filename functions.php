@@ -15,13 +15,13 @@ function error_out($error_file_name){
  * @param null $new_value string
  * @param null $old_value string
  */
-function log($task_id, $event_type_id, $new_value = null, $old_value = null){
+function tasks_log($task_id, $event_type_id, $new_value = null, $old_value = null){
     $data['task_id'] = $task_id;
     $data['user_id'] = get_user_id();
     $data['event_type_id'] = $event_type_id;
     $data['new_value'] = $new_value;
     $data['old_value'] = $old_value;
-    insert($task_id, $data);
+    insert('log', $data);
 }
 
 /**

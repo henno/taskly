@@ -28,7 +28,7 @@ class tasks {
           //   die($new_value);
             $event_type_id = get_one("SELECT event_type_id FROM event_type WHERE event_type_name = 'create' ");
 
-           log($task_id, $event_type_id, $new_value, null);
+			tasks_log($task_id, $event_type_id, $new_value,'');
 
                 $request->redirect('');
 	}
