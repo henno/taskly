@@ -25,10 +25,10 @@ class tasks {
 
             $task_id = insert("task", $data);
             $new_value = implode(" | ",$data);
-             die($new_value);
+          //   die($new_value);
             $event_type_id = get_one("SELECT event_type_id FROM event_type WHERE event_type_name = 'create' ");
 
-//            function log($task_id, $event_type_id, $new_value = null, null) {
+           log($task_id, $event_type_id, $new_value, null);
 
                 $request->redirect('');
 	}
