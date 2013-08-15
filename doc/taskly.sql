@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1-dev
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 13, 2013 at 07:04 PM
--- Server version: 5.5.25
--- PHP Version: 5.4.4
+-- Generation Time: Aug 15, 2013 at 03:50 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `taskly`
 --
+CREATE DATABASE IF NOT EXISTS `taskly` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `taskly`;
 
 -- --------------------------------------------------------
 
@@ -32,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `event_type` (
   `event_type_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `event_type_name` varchar(255) NOT NULL,
   `event_type_color` char(6) NOT NULL,
+  `event_type_filename` varchar(255) NOT NULL,
   PRIMARY KEY (`event_type_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=10 ;
 
@@ -39,16 +42,16 @@ CREATE TABLE IF NOT EXISTS `event_type` (
 -- Dumping data for table `event_type`
 --
 
-INSERT INTO `event_type` (`event_type_id`, `event_type_name`, `event_type_color`) VALUES
-(1, 'logis sisse', ''),
-(2, 'logis välja', ''),
-(3, 'lisas töö', ''),
-(4, 'muutis tööd', ''),
-(5, 'eemaldas töö', ''),
-(6, 'lisas kommentaari', ''),
-(7, 'muutis kommentaari', ''),
-(8, 'kustutas kommentaari', ''),
-(9, 'muutis staatust', '');
+INSERT INTO `event_type` (`event_type_id`, `event_type_name`, `event_type_color`, `event_type_filename`) VALUES
+(1, 'logis sisse', '', 'login'),
+(2, 'logis välja', '', 'logout'),
+(3, 'lisas töö', '', 'task_add'),
+(4, 'muutis tööd', '', 'task_edit'),
+(5, 'eemaldas töö', '', 'task_remove'),
+(6, 'lisas kommentaari', '', 'comment_add'),
+(7, 'muutis kommentaari', '', 'comment_edit'),
+(8, 'kustutas kommentaari', '', 'comment_remove'),
+(9, 'muutis staatust', '', 'status_edit');
 
 -- --------------------------------------------------------
 
@@ -62,6 +65,9 @@ CREATE TABLE IF NOT EXISTS `log` (
   `task_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `event_type_id` int(10) unsigned NOT NULL,
+  `field` varchar(255) NOT NULL,
+  `old_value` varchar(255) NOT NULL,
+  `new_value` varchar(255) NOT NULL,
   KEY `event_type_id` (`event_type_id`),
   KEY `task_id` (`task_id`),
   KEY `user_id` (`user_id`)
@@ -71,8 +77,8 @@ CREATE TABLE IF NOT EXISTS `log` (
 -- Dumping data for table `log`
 --
 
-INSERT INTO `log` (`timestamp`, `task_id`, `user_id`, `event_type_id`) VALUES
-('2013-08-08 18:19:46', 1, 1, 1);
+INSERT INTO `log` (`timestamp`, `task_id`, `user_id`, `event_type_id`, `field`, `old_value`, `new_value`) VALUES
+('2013-08-13 17:56:11', 1, 1, 4, 'Kirjeldus', 'Vana kirjeldus', 'Uus kirjeldus');
 
 -- --------------------------------------------------------
 
@@ -156,9 +162,9 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `deleted`) VALUES
 -- Constraints for table `log`
 --
 ALTER TABLE `log`
-  ADD CONSTRAINT `log_ibfk_5` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_id`),
   ADD CONSTRAINT `log_ibfk_3` FOREIGN KEY (`event_type_id`) REFERENCES `event_type` (`event_type_id`),
-  ADD CONSTRAINT `log_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `log_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  ADD CONSTRAINT `log_ibfk_5` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_id`);
 
 --
 -- Constraints for table `task`

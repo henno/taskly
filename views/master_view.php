@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Dashboard | Adminstrap</title>
+	<title>Töölaud | Taskly</title>
 	<!--jquery-->
 	<link href="<?=ASSETS_URL?>jquery/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
 	<!--bootstrap-->
@@ -17,10 +17,10 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container-fluid">
-			<a class="brand" href="index.html">
-				<img src="<?=ASSETS_URL?>app/img/logo.png" height="45" alt="logo" /></a>
+			<a class="brand" href="<?=BASE_URL?>dashboard"><h1>Taskly</h1></a>
 			<ul id="primary-nav" class="nav">
-				<li><a href="dashboard.html"><i class="nav-icon-9"></i><span>Dashboard</span></a></li>
+				<li><a href="<?=BASE_URL?>dashboard"><i class="nav-icon-9"></i><span>Töölaud</span></a></li>
+                <li><a href="<?=BASE_URL?>tasks"><i class="nav-icon-13"></i><span>Tööd</span></a></li>
 				<li class="dropdown"><a href="#" data-toggle="dropdown"><i class="nav-icon-1"></i><span>
                         Reports</span></a>
 					<ul class="dropdown-menu">
@@ -29,7 +29,6 @@
 						<li><a href="report.html"><i class="icon-list-alt"></i>&nbsp;Report 3</a></li>
 					</ul>
 				</li>
-				<li><a href="forms.html"><i class="nav-icon-12"></i><span>Forms</span></a></li>
 				<li class="dropdown"><a href="#" data-toggle="dropdown"><i class="nav-icon-11"></i><span>
                         Gallery</span></a>
 					<ul class="dropdown-menu">
