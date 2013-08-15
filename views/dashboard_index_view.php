@@ -28,6 +28,16 @@
 		padding-top: 0.8em;
 		word-wrap: break-word;
 	}
+	del {
+		background-color: #fdd;
+		color: red;
+		text-decoration: none;
+	}
+	ins {
+		background-color: #dfd;
+		color: green;
+		text-decoration: none;
+	}
 </style>
 
 <div class="span8">
@@ -54,8 +64,7 @@
 
 			</div>
 			<div class="activity-item-info">
-			<? var_dump(timespan($event['timestamp']))?>
-				<a class="timestamp" href="<?= BASE_URL ?>browse/EMAC-66"><?= timespan($event['timestamp']) ?></a>
+				<a class="timestamp"><?= timespan($event['timestamp']) ?></a>
 
 				<input value="<?= BASE_URL ?>browse/EMAC-66"
 					   class="activity-item-link" type="hidden">

@@ -12,7 +12,15 @@ class dashboard
 		                   ORDER BY timestamp DESC
 		                   LIMIT 0, 10");
 		$lastday = NULL;
-		var_dump($events);
+		include 'modules/finediff.php';
+		for ($n = 0; $n < count($events); $n++) {
+			$opcodes = FineDiff::getDiffOpcodes($events[$n]['old_value'], $events[$n]['new_value'], FineDiff::$wordGranularity);
+			$events[$n]['diff'] = html_entity_decode(FineDiff::renderDiffToHTMLFromOpcodes($events[$n]['old_value'], $opcodes));
+
+			// Crop context
+			// TODO: "|" not working on this next line
+			// $events[$n]['diff'] = preg_replace('#.*(\<(ins|del)\>.*\</(del|ins)\>).*#','$1',$events[$n]['diff']);
+		}
 		require 'views/master_view.php';
 
 	}

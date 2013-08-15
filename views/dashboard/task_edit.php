@@ -1,19 +1,11 @@
-Edited the Description of
-
-<a href="<?= BASE_URL ?>browse/EMAC-66">
-	EMAC-66 - Improve Notification Center support
-</a>
+Muutis töö <b><a href="<?= BASE_URL ?>#"><?= $event['task_summary']?></a></b> kirjeldust</br>
 
 <div class="activity-item-description">
 	<div class="user-content">
 
-		<p>Currently, when a user has opted to display alert style notifications in OS X
-			Notification Center, the Notification Center will be overflooded with Skype
-			alerts when some Skype conversation gets active.</p>
+		Diff <?= $event['diff']?>
 
-		<p>Current behaviour (each sentence anyone on any</p>
-
-		<a href="<?= BASE_URL ?>browse/EMAC-66" class="content-more">Read more</a>
+		<a href="<?= BASE_URL ?>#" class="content-more">Read more</a>
 
 	</div>
 </div>
