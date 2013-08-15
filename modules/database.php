@@ -4,8 +4,8 @@ connect_db(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
 
 function connect_db($host, $user, $pass)
 {
-	@mysql_connect(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD) or error_out('db_connection_fail');
-	@mysql_select_db(DATABASE_DATABASE) or error_out('db_unknown_database');
+    mysql_connect(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD) or error_out('db_connection_fail');
+	mysql_select_db(DATABASE_DATABASE) or exit(mysql_error());
 	mysql_query("SET NAMES utf8");
 	mysql_query("SET CHARACTER utf8");
 
