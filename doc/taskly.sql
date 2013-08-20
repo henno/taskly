@@ -62,12 +62,12 @@ INSERT INTO `event_type` (`event_type_id`, `event_type_name`, `event_type_color`
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE IF NOT EXISTS `log` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `task_id` int(10) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
+  `task_id` int(10) unsigned NULL,
+  `user_id` int(10) unsigned NULL,
   `event_type_id` int(10) unsigned NOT NULL,
-  `field` varchar(255) NOT NULL,
-  `old_value` varchar(255) NOT NULL,
-  `new_value` varchar(255) NOT NULL,
+  `field` varchar(255) NULL,
+  `old_value`  TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `new_value`  TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   KEY `event_type_id` (`event_type_id`),
   KEY `task_id` (`task_id`),
   KEY `user_id` (`user_id`)
