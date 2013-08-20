@@ -3,7 +3,6 @@
 	<input id="tasksummary" name="task_summary" type="text" class="input-block-level" placeholder="töö kokkuvõte">
 	<input id="datepicker" name="task_due" type="text" class="input-block-level"
 	       placeholder="tähtaeg">
-	<input id="field" name="field" type="text" class="input-block-level" placeholder="field ?">
 
 <select name="user_assignee_id" type="text" class="dropdown">
 		<?if(!empty($assignees)):foreach($assignees as $assignee):?>
