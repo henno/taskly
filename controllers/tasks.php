@@ -24,14 +24,14 @@ class tasks
 	{
 		global $request;
 		global $auth;
-		$assignees = get_all("SELECT * FROM user"); // var_dump($assignees);
+		$workers = get_all("SELECT * FROM user"); // var_dump($assignees);
 		if (isset($_POST['task_summary']) && isset($_POST['task_due'])) {
 			$data['task_summary'] = $_POST['task_summary'];
 			$data['task_due'] = $_POST['task_due'];
 			$data['user_assignee_id'] = $_POST['user_assignee_id'];
-			$data['user_reporter_id'] = 1;
+			$data['user_reporter_id'] = $_POST['user_reporter_id'];
 			$task_id = insert("task", $data);
-			write_log(TASK_ADD, get_user_id(),$task_id);
+			write_log(TASK_ADD, NULL, $task_id);
 
 			$request->redirect('');
 		}
