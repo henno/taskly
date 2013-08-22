@@ -48,7 +48,7 @@
 						<li><a href="#"><i class="icon-picture"></i>&nbsp;Themes</a></li>
 					</ul>
 				</li>
-				<li><a href="index.html"><i class="icon-off icon-white"></i>&nbsp;Logout</a></li>
+				<li><a href="<?=BASE_URL?>logout"><i class="icon-off icon-white"></i>&nbsp;Logout</a></li>
 			</ul>
 		</div>
 	</div>

@@ -31,7 +31,7 @@ class tasks
 			$data['user_assignee_id'] = $_POST['user_assignee_id'];
 			$data['user_reporter_id'] = $_POST['user_reporter_id'];
 			$task_id = insert("task", $data);
-			write_log(TASK_ADD, NULL, $task_id);
+			write_log(TASK_ADD, $task_id);
 
 			$request->redirect('');
 		}

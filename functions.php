@@ -23,16 +23,15 @@ function error_out($error_file_name)
  * Log event in history table
  *
  * @param $event_type_id int Event type
- * @param $user_id int User's id
  * @param null $task_id int Task associated with the event
  * @param null $field string Changed field's name
  * @param null $new_value string Changed field's new value
  * @param null $old_value string Changed field's old value
  */
-function write_log($event_type_id, $user_id = NULL, $task_id = NULL, $field = NULL, $new_value = NULL, $old_value = NULL)
+function write_log($event_type_id, $task_id = NULL,$field = NULL, $new_value = NULL, $old_value = NULL)
 {
 	$data['task_id'] = $task_id;
-	$data['user_id'] = $user_id;
+	$data['user_id'] = get_user_id();
 	$data['event_type_id'] = $event_type_id;
 	$data['new_value'] = $new_value;
 	$data['old_value'] = $old_value;
