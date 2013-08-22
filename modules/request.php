@@ -7,30 +7,37 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class Request // objekt
+class Request
 {
 
-	public $controller = DEFAULT_CONTROLLER; // muutujad, nagu array-s/ klassi sees muutuja on property
+	public $controller = DEFAULT_CONTROLLER;
 	public $action = 'index';
 	public $params = array();
 
-	public function __construct() // funktsioon saab olla ainult klassis/ väljakutsumine: ->/ klassis ees funktsioon on meetod
-	{
-		// kas on olemas $_SERVER-is PATH_INFO ehk kas kasutaja on kirjutanud midagi aadressirea lõppu
-		// $_SERVER['PATH_INFO'] = /kasutajad/vaatamine/23
+	public function __construct()
+    {
 		if (isset($_SERVER['PATH_INFO'])) {
-			//eraldab stringi liikmed tekitab array, kus liikmete vahel / ja paneb selle path_info-ks
-			if ($path_info = explode('/', $_SERVER['PATH_INFO'])) { // explode ülemise järgi tekitab 4 liiget
-				// läheb käima kui $path_info ei tagasta FALSE-i(juhul kui pole ühtegi / märki)
-				array_shift($path_info); // array_shift kustutab ära esimese liikme ja reastab liikmed uuesti(uus 0)
-				// $this viitab käesolevale klassile (Request)
+			if ($path_info = explode('/', $_SERVER['PATH_INFO'])) {
+				array_shift($path_info);
 				$this->controller = isset($path_info[0]) ? array_shift($path_info) : DEFAULT_CONTROLLER;
-				// array_shift võtab path_infost esimese liikme ära ja tagastab selle controllerisse
 				$this->action = isset($path_info[0]) && ! empty($path_info[0]) ? array_shift($path_info) : 'index';
-				$this->params = isset($path_info[0]) ? $path_info : NULL; // parameters
+				$this->params = isset($path_info[0]) ? $path_info : array();
 			}
 		}
-	}
+
+        /** Routings **/
+
+        // tasks/13 ==> tasks/view/13
+        if( $this->controller == 'tasks' and is_numeric($this->action) ) {
+
+            // Put task's id to params array
+            array_unshift($this->params, $this->action);
+
+            // Overwrite action property
+            $this->action = 'view';
+        }
+    }
+
 	// ümbersuunamine
 	public function redirect($destination){
 		header('Location: '.BASE_URL.$destination); // header - aadressiribale, Location: peab olema

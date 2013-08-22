@@ -1,7 +1,7 @@
 <?php
 /**
  * Class auth authenticates user and permits to check if the user has been logged in
- * Automatically loaded when the controller has $requires_auth property.
+ * Automatically loaded when the controller does not have $public property.
  */
 class auth
 {

@@ -3,11 +3,16 @@
 	<input id="tasksummary" name="task_summary" type="text" class="input-block-level" placeholder="töö kokkuvõte">
 	<input id="datepicker" name="task_due" type="text" class="input-block-level"
 	       placeholder="tähtaeg">
-	<input id="field" name="field" type="text" class="input-block-level" placeholder="field ?">
-
+<p>vastutaja</p>
 <select name="user_assignee_id" type="text" class="dropdown">
-		<?if(!empty($assignees)):foreach($assignees as $assignee):?>
-		<option name="user_assignee_id" value="<?=$assignee['user_id']?>"><?=$assignee['username']?></option>
+		<?if(!empty($workers)):foreach($workers as $worker):?>
+		<option name="user_assignee_id" value="<?=$worker['user_id']?>"><?=$worker['username']?></option>
+		<?endforeach;endif?>
+	</select>
+	<p>teataja</p>
+	<select name="user_reporter_id" type="text" class="dropdown">
+		<?if(!empty($workers)):foreach($workers as $worker):?>
+			<option name="user_reporter_id" value="<?=$worker['user_id']?>"><?=$worker['username']?></option>
 		<?endforeach;endif?>
 	</select>
 	<button class="btn btn-large btn-primary" type="submit">Lisa</button>
