@@ -1,8 +1,9 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Andres
- * Date: 13.08.13
- * Time: 20:44
- * To change this template use File | Settings | File Templates.
- */
+lisas töö <b><a href="<?= BASE_URL ?>#"><?= $event['task_summary'] ?></a></b></br>
+
+<div class="activity-item-description">
+	<div class="user-content">
+		<?= $event['new_value'] ?>
+		<a href="<?= BASE_URL ?>#" class="content-more">Vaata tööd</a>
+
+	</div>
+</div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 15, 2013 at 03:50 PM
+-- Generation Time: Aug 22, 2013 at 05:58 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -62,12 +62,12 @@ INSERT INTO `event_type` (`event_type_id`, `event_type_name`, `event_type_color`
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE IF NOT EXISTS `log` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `task_id` int(10) unsigned NULL,
-  `user_id` int(10) unsigned NULL,
+  `task_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
   `event_type_id` int(10) unsigned NOT NULL,
-  `field` varchar(255) NULL,
-  `old_value`  TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `new_value`  TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `field` varchar(255) NOT NULL,
+  `old_value` text NOT NULL,
+  `new_value` text NOT NULL,
   KEY `event_type_id` (`event_type_id`),
   KEY `task_id` (`task_id`),
   KEY `user_id` (`user_id`)
@@ -78,7 +78,16 @@ CREATE TABLE IF NOT EXISTS `log` (
 --
 
 INSERT INTO `log` (`timestamp`, `task_id`, `user_id`, `event_type_id`, `field`, `old_value`, `new_value`) VALUES
-('2013-08-13 17:56:11', 1, 1, 4, 'Kirjeldus', 'Vana kirjeldus', 'Uus kirjeldus');
+('2013-08-15 19:10:38', 1, 1, 4, 'Lorem', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad architecto debitis dicta dolorem doloremque earum eos eveniet ex excepturi fugiat fugit inventore ipsa libero magnam minima molestias mollitia officia pariatur, possimus quas qui quia quidem ratione reiciendis repellendus, reprehenderit repudiandae sequi soluta temporibus tenetur voluptates voluptatibus voluptatum. Aliquid animi beatae corporis, dolor, dolorum harum id itaque iusto laboriosam maxime molestias nesciunt nihil nisi nobis optio praesentium repellendus reprehenderit rerum saepe sapiente temporibus ut velit, voluptas. Assumenda consequatur, consequuntur earum fugiat illum ipsam quam voluptate! Ad aspernatur, consequatur cum, dolore eius id iusto laboriosam reiciendis repellat sunt unde voluptatum. Animi assumenda cumque dignissimos est et ex hic illum ipsa, magni natus nihil nisi nulla odio officiis pariatur quaerat quia quibusdam rerum, sint voluptates? Aperiam assumenda, autem corporis culpa debitis delectus doloribus exercitationem, minus modi provident rem sunt tempore totam vel voluptatem! Aut autem delectus ducimus earum illum in nesciunt numquam quaerat quis repellendus! Dolore ex exercitationem id illum natus officia sapiente similique temporibus voluptatem. Ad at blanditiis delectus distinctio eius error itaque nemo obcaecati quae ratione, saepe sapiente similique sint? Consequuntur et id illo molestias nulla quo recusandae repellat. Architecto, asperiores doloremque, ea eaque enim magnam modi omnis praesentium quis, ratione tempore ut. Aliquam amet blanditiis cumque id quibusdam quisquam ullam? A adipisci amet, aspernatur aut blanditiis commodi deleniti dignissimos distinctio doloremque eaque eligendi eveniet exercitationem harum hic ipsa ipsam itaque magnam, molestias mollitia pariatur reprehenderit rerum saepe sapiente, similique sint tenetur voluptatem? A accusantium delectus doloribus non optio? Dolor dolore earum error nesciunt nihil. Illo ipsum modi nihil nisi quis repellat similique veritatis! Aliquid eaque harum praesentium voluptate voluptatibus? Animi atque aut culpa deleniti ducimus laudantium, libero nulla, officia optio praesentium qui saepe sint sunt. Assumenda blanditiis debitis earum eligendi enim eos eum ex fugiat harum, labore praesentium soluta!', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad architecto debitis dicta dolorem doloremque earum eos eveniet ex excepturi fugiat fugit inventore ipsa libero magnam minima molestias mollitia officia pariatur, possimus quas qui quia quidem ratione reiciendis repellendus, reprehenderit repudiandae sequi soluta temporibus tenetur voluptates voluptatibus voluptatum. Aliquid animi beatae corporis, dolor, dolorum harum id itaque iusto laboriosam maxime molestias nesciunt nihil nisi nobis optio praesentium repellendus reprehenderit rerum saepe sapiente temporibus ut velit, voluptas. Assumenda consequatur, consequuntur earum fugiat illum ipsam quam voluptate! Ad aspernatur, consequatur cum, dolore eius id iusto laboriosam reiciendis repellat sunt unde voluptatum. Animi assumenda cumque dignissimos est et ex hic illum ipsa, magni natus nihil nisi nulla odio officiis pariatur Muutus delectus doloribus exercitationem, minus modi provident rem sunt tempore totam vel voluptatem! Aut autem delectus ducimus earum illum in nesciunt numquam quaerat quis repellendus! Dolore ex exercitationem id illum natus officia sapiente similique temporibus voluptatem. Ad at blanditiis delectus distinctio eius error itaque nemo obcaecati quae ratione, saepe sapiente similique sint? Consequuntur et id illo molestias nulla quo recusandae repellat. Architecto, asperiores doloremque, ea eaque enim magnam modi omnis praesentium quis, ratione tempore ut. Aliquam amet blanditiis cumque id quibusdam quisquam ullam? A adipisci amet, aspernatur aut blanditiis commodi deleniti dignissimos distinctio doloremque eaque eligendi eveniet exercitationem harum hic ipsa ipsam itaque magnam, molestias mollitia pariatur reprehenderit rerum saepe sapiente, similique sint tenetur voluptatem? A accusantium delectus doloribus non optio? Dolor dolore earum error nesciunt nihil. Illo ipsum modi nihil nisi quis repellat similique veritatis! Aliquid eaque harum praesentium voluptate voluptatibus? Animi atque aut culpa deleniti ducimus laudantium, libero nulla, officia optio praesentium qui saepe sint sunt. Assumenda blanditiis debitis earum eligendi enim eos eum ex fugiat harum, labore praesentium soluta!'),
+('2013-08-15 19:12:47', 1, 1, 4, 'HTML', '<strong>Tere</strong>', '<i>Tere</i>'),
+('2013-08-22 17:16:21', 1, 1, 3, 'Uus töö', '', 'Täitsa uus töö lisatud'),
+('2013-08-22 17:53:39', 1, 1, 8, 'kommentaar', '', 'kustutati kommentaar sellel värgil siin'),
+('2013-08-22 17:55:00', 1, 1, 1, '', '', ''),
+('2013-08-22 17:55:20', 1, 1, 2, '', '', ''),
+('2013-08-22 17:55:58', 1, 1, 5, '', 'bvnbvn', ''),
+('2013-08-22 17:56:28', 1, 1, 6, '', '', ''),
+('2013-08-22 17:56:35', 1, 1, 7, '', '', ''),
+('2013-08-22 17:56:41', 1, 1, 9, '', '', '');
 
 -- --------------------------------------------------------
 
