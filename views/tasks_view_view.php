@@ -6,7 +6,7 @@
 	<table>
 
 		<tr><td>Kokkuvõte</td>
-			<td class="edit" id="tasksummary" name="task_summary"><?=$task['task_summary'];?></td></tr>
+			<td  class="edit" id="task_summary" name="task_summary"><?=$task['task_summary'];?></td></tr>
 		<tr><td>Tähtaeg</td><td class="edit" id="task_due" name="task_due"><?=$task['task_due'];?></td></tr>
 		<tr><td>Vastutaja</td><td class="edit" id="user_assignee_id"><?=$assignee_name?></td></tr>
 		<tr><td>Teataja</td><td class="edit" id="user_reporter_id"><?=$reporter_name?></td></tr>
