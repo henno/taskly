@@ -2,7 +2,7 @@
 
 class admin {
 
-	public $requires_auth = true;
+	public $public = true;
 
 	function index(){
 		global $request;

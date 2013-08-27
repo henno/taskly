@@ -16,7 +16,15 @@ class tasks
 		global $request;
 		global $auth;
 		$id = $request->params[0];
-		$tasks = get_first("SELECT * FROM task WHERE task_id='$id' ");
+		$task = get_first("SELECT * FROM task NATURAL JOIN user WHERE task_id='$id'");
+		$assignee_id=$task['user_assignee_id'];
+		$reporter_id=$task['user_reporter_id'];
+		$assignee_name=get_one("SELECT user.username FROM user WHERE user_id='$assignee_id'");
+		$reporter_name=get_one("SELECT user.username FROM user WHERE user_id='$reporter_id'");
+		$users=get_all("SELECT * FROM user");
+
+
+
 		require 'views/master_view.php';
 	}
 
