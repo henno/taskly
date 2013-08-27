@@ -1,1 +1,1 @@
-kustutas töö <b><a href="<?= BASE_URL ?>#"><?= $event['task_summary']?></a></b></br>
+kustutas töö <b><a href="<?= BASE_URL ?>tasks/view/<?= $event['task_id'] ?>"><?= $event['task_summary']?></a></b></br>

@@ -1,4 +1,4 @@
-kommenteeris <b><a href="<?= BASE_URL ?>#"><?= $event['task_summary'] ?></a></b> tööd</br>
+kommenteeris <b><a href="<?= BASE_URL ?>tasks/view/<?= $event['task_id'] ?>"><?= $event['task_summary'] ?></a></b> tööd</br>
 
 <div class="activity-item-description">
 	<div class="user-content">

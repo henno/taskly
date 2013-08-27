@@ -9,6 +9,7 @@ class dashboard
 		                   FROM log
 		                   NATURAL JOIN event_type
 		                   NATURAL JOIN task
+		                   NATURAL JOIN user
 		                   ORDER BY timestamp DESC
 		                   LIMIT 0, 10");
 		$lastday = NULL;

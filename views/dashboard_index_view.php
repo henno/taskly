@@ -19,20 +19,24 @@
 		padding: 0 5px 0.8em 65px;
 		vertical-align: top;
 	}
+
 	p {
 		margin-bottom: 1em;
 	}
+
 	.activity-item-summary {
 		color: #555555;
 		line-height: 145%;
 		padding-top: 0.8em;
 		word-wrap: break-word;
 	}
+
 	del {
 		background-color: #fdd;
 		color: red;
 		text-decoration: none;
 	}
+
 	ins {
 		background-color: #dfd;
 		color: green;
@@ -49,27 +53,23 @@
 		<div class="activity-item">
 
             <span class="user-icon">
-    			<a target="_parent" href="<?= BASE_URL ?>secure/ViewProfile.jspa?name=henno.taht%40gmail.com">
-					<img src="<?= ASSETS_URL ?>img/useravatar.png" title="Henno Täht" alt="Henno Täht" height="48" width="48">
+    			<a target="_parent" href="<?= BASE_URL ?>#">
+					<img src="<?= ASSETS_URL ?>img/useravatar.png" title="Henno Täht" alt="Henno Täht" height="48"
+						 width="48">
 				</a>
   			 </span>
 
 			<div class="activity-item-summary">
 
-				<a href="<?= BASE_URL ?>secure/ViewProfile.jspa?name=henno.taht%40gmail.com"
+				<a href="<?= BASE_URL ?>#"
 				   class="activity-item-user activity-item-author">
-					Henno Täht
+					<?= $event['username'] ?>
 				</a>
-			<? require 'dashboard/'.$event['event_type_filename'].'.php'; ?>
+				<? require 'dashboard/' . $event['event_type_filename'] . '.php'; ?>
 
 			</div>
 			<div class="activity-item-info">
-				<a class="timestamp"><?= timespan($event['timestamp']) ?></a>
-
-				<input value="<?= BASE_URL ?>browse/EMAC-66"
-					   class="activity-item-link" type="hidden">
-
-				<div class="activity-item-actions"></div>
+				<?= timespan($event['timestamp']) ?>
 			</div>
 			<div class="clearer"></div>
 		</div>
